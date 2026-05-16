@@ -126,7 +126,7 @@ label {
     color: #856404;
 }
 
-/* 자리배치표 디자인 */
+/* === 배치표 영역 === */
 .desk-container {
     display: flex;
     flex-direction: column;
@@ -188,6 +188,7 @@ label {
     margin-top: 0;
     color: #2980b9;
     font-size: 18px;
+    margin-bottom: 15px;
 }
 
 .history-controls {
@@ -199,19 +200,21 @@ label {
 .mt-10 { margin-top: 15px; }
 
 .history-controls input, .history-controls select {
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #bdc3c7;
     border-radius: 5px;
     flex: 1;
+    font-family: inherit;
 }
 
 .history-controls button {
-    padding: 8px 15px;
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
     font-weight: bold;
     color: white;
     cursor: pointer;
+    transition: opacity 0.2s;
 }
 
 .save-btn { background-color: #3498db; }
