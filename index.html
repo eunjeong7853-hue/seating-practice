@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학급 자리 배치표</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏫 학급 자리 배치표 (30명)</h1>
+        
+        <div class="settings">
+            <div class="input-group">
+                <label for="studentList">👨‍🎓 학생 명단 (이름,성별) - 한 줄에 한 명씩</label>
+                <textarea id="studentList" rows="10">
+김철수,남
+이영희,여
+박민수,남
+정수진,여
+최동건,남
+강유리,여
+조현우,남
+윤지아,여
+장도윤,남
+임서연,여
+한건우,남
+오지우,여
+서우진,남
+신하윤,여
+권시우,남
+황서현,여
+안준호,남
+송민지,여
+전민준,남
+홍은지,여
+유예준,남
+고수아,여
+문태양,남
+백채원,여
+양하준,남
+손윤아,여
+배도현,남
+허지민,여
+김도현,남
+이시아,여</textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="avoidList">🚫 띄어 앉힐 학생 (이름,이름) - 한 줄에 한 쌍</label>
+                <textarea id="avoidList" rows="4" placeholder="예시:&#10;김철수,박민수&#10;이영희,강유리"></textarea>
+            </div>
+        </div>
+
+        <div class="options">
+            <label>
+                <input type="checkbox" id="mixGender" checked> 
+                남녀 짝꿍(혼성)으로 앉히기
+            </label>
+            <button onclick="generateSeating()">자리 배치하기</button>
+        </div>
+
+        <div class="desk-container">
+            <div class="teacher-desk">교탁</div>
+            <div id="classroom" class="grid">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
