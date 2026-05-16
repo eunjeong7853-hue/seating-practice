@@ -20,6 +20,7 @@ body {
 h1 {
     text-align: center;
     color: #2c3e50;
+    margin-bottom: 20px;
 }
 
 .settings {
@@ -34,10 +35,40 @@ h1 {
     flex-direction: column;
 }
 
+.help-text {
+    font-size: 13px;
+    color: #e74c3c;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.options-group {
+    justify-content: center;
+    align-items: flex-end;
+}
+
 label {
     font-weight: bold;
     margin-bottom: 8px;
     color: #34495e;
+}
+
+.grid-settings {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #ecf0f1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.grid-settings input {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 textarea {
@@ -50,29 +81,39 @@ textarea {
     box-sizing: border-box;
 }
 
-.options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    padding: 15px;
-    background-color: #ecf0f1;
-    border-radius: 5px;
-}
-
 button {
     background-color: #3498db;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
 }
 
 button:hover {
     background-color: #2980b9;
+}
+
+.view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff3cd;
+    border-radius: 8px;
+    border: 1px solid #ffeeba;
+}
+
+.view-toggle label {
+    cursor: pointer;
+    font-size: 16px;
+    color: #856404;
+    margin: 0;
 }
 
 .desk-container {
@@ -80,6 +121,7 @@ button:hover {
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    transition: all 0.3s ease;
 }
 
 .teacher-desk {
@@ -93,17 +135,29 @@ button:hover {
     margin-bottom: 30px;
 }
 
-/* 6열 그리드로 수정 */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 15px;
-    column-gap: 15px;
+/* === 교사용 뷰 핵심 디자인 (180도 회전) === */
+.desk-container.teacher-view {
+    flex-direction: column-reverse;
+}
+.desk-container.teacher-view .teacher-desk {
+    margin-bottom: 0;
+    margin-top: 30px;
+}
+.desk-container.teacher-view .grid {
+    transform: rotate(180deg);
+}
+.desk-container.teacher-view .seat {
+    transform: rotate(180deg);
 }
 
-/* 2열, 4열 뒤에 넓은 통로 마진 추가 (2-2-2 분단 구조) */
-.grid > div:nth-child(6n+2),
-.grid > div:nth-child(6n+4) {
+.grid {
+    display: grid;
+    gap: 15px;
+    column-gap: 15px;
+    transition: transform 0.3s ease;
+}
+
+.aisle {
     margin-right: 30px; 
 }
 
@@ -118,6 +172,7 @@ button:hover {
     border-radius: 8px;
     font-weight: bold;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
 }
 
 .seat.boy { border-color: #3498db; }
