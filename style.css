@@ -1,0 +1,124 @@
+body {
+    font-family: 'Malgun Gothic', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 900px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.settings {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #34495e;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.desk-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.teacher-desk {
+    width: 150px;
+    padding: 15px;
+    background-color: #7f8c8d;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+/* 6열 그리드로 수정 */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    column-gap: 15px;
+}
+
+/* 2열, 4열 뒤에 넓은 통로 마진 추가 (2-2-2 분단 구조) */
+.grid > div:nth-child(6n+2),
+.grid > div:nth-child(6n+4) {
+    margin-right: 30px; 
+}
+
+.seat {
+    width: 80px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8f4fd;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.seat.boy { border-color: #3498db; }
+.seat.girl { border-color: #e74c3c; }
