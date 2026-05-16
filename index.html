@@ -8,14 +8,34 @@
 </head>
 <body>
     <div class="container">
-        <h1>🏫 학급 자리 배치표 (30명)</h1>
+        <h1>🏫 학급 자리 배치표</h1>
         
         <div class="settings">
             <div class="input-group">
-                <label for="studentList">👨‍🎓 학생 명단 (이름,성별) - 한 줄에 한 명씩</label>
+                <label>📏 교실 구조 설정</label>
+                <div class="grid-settings">
+                    <input type="number" id="columns" value="6" min="2" max="10"> 열 (가로)
+                    <span>×</span>
+                    <input type="number" id="rows" value="5" min="2" max="10"> 행 (세로)
+                </div>
+            </div>
+            
+            <div class="input-group options-group">
+                <label>
+                    <input type="checkbox" id="mixGender" checked> 
+                    남녀 짝꿍(혼성)으로 앉히기
+                </label>
+                <button onclick="generateSeating()">자리 배치하기</button>
+            </div>
+        </div>
+
+        <div class="settings">
+            <div class="input-group">
+                <label for="studentList">👨‍🎓 학생 명단 (이름,성별,고정행,고정열)</label>
+                <span class="help-text">※ 자리를 고정할 학생만 행과 열을 적어주세요. (예: 김철수,남,1,1)</span>
                 <textarea id="studentList" rows="10">
-김철수,남
-이영희,여
+김철수,남,1,1
+이영희,여,1,2
 박민수,남
 정수진,여
 최동건,남
@@ -48,19 +68,18 @@
 
             <div class="input-group">
                 <label for="avoidList">🚫 띄어 앉힐 학생 (이름,이름) - 한 줄에 한 쌍</label>
-                <textarea id="avoidList" rows="4" placeholder="예시:&#10;김철수,박민수&#10;이영희,강유리"></textarea>
+                <textarea id="avoidList" rows="4" placeholder="예시:&#10;박민수,조현우&#10;정수진,강유리"></textarea>
             </div>
         </div>
 
-        <div class="options">
-            <label>
-                <input type="checkbox" id="mixGender" checked> 
-                남녀 짝꿍(혼성)으로 앉히기
-            </label>
-            <button onclick="generateSeating()">자리 배치하기</button>
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+        <div class="view-toggle">
+            <label><input type="radio" name="viewMode" value="student" checked onchange="changeView()"> 👨‍🎓 학생용 시점 (교탁이 위)</label>
+            <label><input type="radio" name="viewMode" value="teacher" onchange="changeView()"> 👨‍🏫 교사용 시점 (교탁이 아래)</label>
         </div>
 
-        <div class="desk-container">
+        <div class="desk-container" id="deskContainer">
             <div class="teacher-desk">교탁</div>
             <div id="classroom" class="grid">
                 </div>
